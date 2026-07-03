@@ -3,8 +3,13 @@ package com.example.ToDoTask.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @NoArgsConstructor
 @ToString
+@Getter
+@Setter
 @Entity
 @Table(name = "users")
 public class User {
@@ -24,11 +29,19 @@ public class User {
     @Column(name = "role", nullable = false)
     private Role role;
 
+    @OneToMany(mappedBy = "authorId")
+    private List<Task> tasksByAuthor = new ArrayList<>();
+
+    @OneToMany(mappedBy = "assigneeId")
+    private List<Task> tasksByAssignee = new ArrayList<>();
+
     public User(String username, String email, String password, Role role) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.role = role;
     }
+
+
 
 }
