@@ -1,5 +1,6 @@
 package com.example.ToDoTask.model;
 
+import com.example.ToDoTask.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 

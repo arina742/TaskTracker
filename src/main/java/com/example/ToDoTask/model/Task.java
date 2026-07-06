@@ -1,5 +1,7 @@
 package com.example.ToDoTask.model;
 
+import com.example.ToDoTask.enums.Role;
+import com.example.ToDoTask.enums.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,4 +47,14 @@ public class Task {
     @JoinColumn(name = "assignee_id")
     private User assigneeId;
 
+    public Task(String title, String description, Status status, Role role, LocalDateTime createdAt, LocalDateTime deadline, User authorId, User assigneeId) {
+        this.title = title;
+        this.description = description;
+        this.status = status;
+        this.role = role;
+        this.createdAt = createdAt;
+        this.deadline = deadline;
+        this.authorId = authorId;
+        this.assigneeId = assigneeId;
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.ToDoTask.model;
+package com.example.ToDoTask.enums;
 
 public enum Role {
     USER,
