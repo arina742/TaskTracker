@@ -8,11 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
-@ToString
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
+@Table(name = "userss")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +27,7 @@ public class User {
     private String password;
 
     @Column(name = "role", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     @OneToMany(mappedBy = "authorId")

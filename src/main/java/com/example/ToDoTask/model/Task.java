@@ -1,21 +1,17 @@
 package com.example.ToDoTask.model;
 
+
 import com.example.ToDoTask.enums.Role;
 import com.example.ToDoTask.enums.Status;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
-@ToString
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 @Entity
-@Table(name = "tasks")
+@Table(name = "taskss")
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,9 +24,11 @@ public class Task {
     private String description;
 
     @Column(name = "status", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     @Column(name = "role", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     @Column(name = "created_at", nullable = false)
