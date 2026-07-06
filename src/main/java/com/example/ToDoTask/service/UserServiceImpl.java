@@ -14,26 +14,33 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<User> getAllTask() {
-        return List.of();
+        return userRepository.findAll();
     }
 
     @Override
-    public User getTaskById(Long id) {
-        return null;
+    public User getUserById(Long id) {
+        return userRepository.findById(id).orElseThrow(()->new RuntimeException("Полтзователь не найден"));
     }
 
     @Override
     public void deleteById(Long id) {
-
+        userRepository.deleteById(id);
     }
 
     @Override
     public User save(User user) {
-        return null;
+        return userRepository.save(user);
     }
 
     @Override
     public User update(Long id, User user) {
-        return null;
+        User newUser = userRepository.findById(id).orElseThrow(()->new RuntimeException("Пользователь не найден"));
+        newUser.setUsername(user.getUsername());
+        newUser.setEmail(user.getEmail());
+        newUser.setPassword(user.getPassword());
+        newUser.setRole(user.getRole());
+        newUser.setTasksByAssignee(user.getTasksByAssignee());
+        newUser.setTasksByAuthor(user.getTasksByAuthor());
+        return newUser;
     }
 }
