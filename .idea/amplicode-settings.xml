@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CrudOperationsStateConfig">
+    <option name="configPaths">
+      <map>
+        <entry key="dto" value="com.example.ToDoTask.model.User" />
+        <entry key="repository" value="com.example.ToDoTask.repository.UserRepository" />
+      </map>
+    </option>
+  </component>
+</project>

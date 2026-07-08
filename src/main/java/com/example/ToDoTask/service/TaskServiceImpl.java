@@ -14,8 +14,6 @@ public class TaskServiceImpl implements TaskService{
     @Autowired
     public TaskRepository taskRepository;
 
-
-
     @Override
     public List<Task> getAllTask() {
         return taskRepository.findAll();
@@ -47,6 +45,7 @@ public class TaskServiceImpl implements TaskService{
         newTask.setCreatedAt(task.getCreatedAt());
         newTask.setAssigneeId(task.getAssigneeId());
         newTask.setDeadline(task.getDeadline());
+        taskRepository.save(newTask);
         return newTask;
     }
 }

@@ -18,14 +18,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/user")
-@RequiredArgsConstructor
 public class UserController {
     @Autowired
-    public final UserServiceImpl userService;
+    public  UserServiceImpl userService;
 
     @GetMapping
     public ResponseEntity<List<User>> getAll() {
-        return ResponseEntity.ok( userService.getAllTask());
+        return ResponseEntity.ok( userService.getAllUser());
     }
 
     @GetMapping("/{id}")
@@ -38,6 +37,16 @@ public class UserController {
         return ResponseEntity.ok(userService.save(user));
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<User> update(@PathVariable Long id, @RequestBody User user){
+        return ResponseEntity.ok(userService.update(id, user));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        userService.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 
 
 }

@@ -13,7 +13,7 @@ public class UserServiceImpl implements UserService{
     public UserRepository userRepository;
 
     @Override
-    public List<User> getAllTask() {
+    public List<User> getAllUser() {
         return userRepository.findAll();
     }
 
@@ -41,6 +41,7 @@ public class UserServiceImpl implements UserService{
         newUser.setRole(user.getRole());
         newUser.setTasksByAssignee(user.getTasksByAssignee());
         newUser.setTasksByAuthor(user.getTasksByAuthor());
+        userRepository.save(newUser);
         return newUser;
     }
 }
